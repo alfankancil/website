@@ -1,23 +1,13 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-/*=============== VARIABLES CSS ===============*/
-:root {
-  /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
-  /*
-      Blue: hsl(207, 90%, 61%)
-      Purple: hsl(250, 66%, 75%)
-      Pink: hsl(356, 66%, 75%)
-      Teal: hsl(174, 63%, 62%)
-  */
 
+:root {
   --hue: 207;
   --sat: 90%;
   --lig: 61%;
   --first-color: hsl(var(--hue), var(--sat), var(--lig));
   --first-color-alt: hsl(var(--hue), var(--sat), 57%);
-  /* -4% */
+
   --title-color: hsl(var(--hue), 12%, 15%);
   --text-color: hsl(var(--hue), 12%, 45%);
   --text-color-light: hsl(var(--hue), 8%, 75%);
@@ -25,8 +15,8 @@
   --body-color: hsl(var(--hue), 100%, 99%);
   --container-color: #fff;
 
-  /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
+
+
   --body-font: 'Poppins', sans-serif;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
@@ -45,7 +35,7 @@
   }
 }
 
-/*=============== BASE ===============*/
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -58,7 +48,7 @@ body {
   background-color: var(--body-color);
   color: var(--text-color);
   transition: .3s;
-  /* For animation dark mode */
+
 }
 
 h1,
@@ -81,7 +71,7 @@ img {
   height: auto;
 }
 
-/*=============== THEME ===============*/
+
 .change-theme {
   position: absolute;
   top: 1.5rem;
@@ -96,7 +86,7 @@ img {
   color: var(--first-color);
 }
 
-/*========== Variables Dark theme ==========*/
+
 body.dark-theme {
   --title-color: hsl(var(--hue), 12%, 95%);
   --text-color: hsl(var(--hue), 12%, 75%);
@@ -104,10 +94,7 @@ body.dark-theme {
   --container-color: hsl(var(--hue), 24%, 12%);
 }
 
-/*========== 
-    Color changes in some parts of 
-    the website, in light theme
-==========*/
+
 .dark-theme .button__gray {
   background-color: var(--container-color);
 }
@@ -132,16 +119,17 @@ body.dark-theme {
   background-color: hsl(var(--hue), 8%, 32%);
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
+
 .container {
   max-width: 1068px;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 }
-.main{
-margin-top: 20px;
-position: relative;
-display: grid;
+
+.main {
+  margin-top: 20px;
+  position: relative;
+  display: grid;
 }
 
 .grid {
@@ -149,7 +137,7 @@ display: grid;
   gap: 1.5rem;
 }
 
-/*=============== PROFILE ===============*/
+
 .profile {
   position: relative;
   padding-top: 3.5rem;
@@ -254,9 +242,9 @@ display: grid;
   column-gap: .25rem;
 }
 
-/*=============== BUTTONS ===============*/
+
 .button {
-    
+
   margin: 2rem 0 2.5rem;
   display: inline-flex;
   align-items: center;
@@ -291,15 +279,15 @@ display: grid;
   background-color: var(--text-color-light);
 }
 
-/*=============== FILTERS TABS===============*/
+
 .filters__content {
-  
+
   margin: 2rem 0 2.5rem;
   background-color: var(--text-color-lighten);
   padding: .375rem;
   border-radius: .75rem;
   position: relative;
-  
+
   display: flex;
   justify-content: space-between;
   column-gap: .5rem;
@@ -324,7 +312,7 @@ display: grid;
   background-color: var(--body-color);
 }
 
-/*=============== PROJECTS ===============*/
+
 .projects__card {
   position: relative;
   border-radius: 1rem;
@@ -373,7 +361,7 @@ display: grid;
   bottom: 0;
 }
 
-/*=============== SKILLS ===============*/
+
 .skills__content {
   row-gap: 3.5rem;
 }
@@ -416,7 +404,7 @@ display: grid;
   font-size: var(--smaller-font-size);
 }
 
-/* Hide and show projects & skills */
+
 .filters [data-content] {
   display: none;
 }
@@ -425,12 +413,12 @@ display: grid;
   display: grid;
 }
 
-/* Activate button filter */
+
 .filter-tab-active {
   background-color: var(--body-color);
 }
 
-/*=============== FOOTER ===============*/
+
 .footer__copy {
   display: block;
   margin: 2.5rem 0 2rem;
@@ -439,7 +427,7 @@ display: grid;
   color: var(--text-color-light);
 }
 
-/*=============== SCROLL BAR ===============*/
+
 ::-webkit-scrollbar {
   width: .6rem;
   border-radius: .5rem;
@@ -455,8 +443,8 @@ display: grid;
   background-color: hsl(var(--hue), 8%, 44%);
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For small devices */
+
+
 @media screen and (max-width: 320px) {
   .container {
     margin-left: 1rem;
@@ -477,7 +465,7 @@ display: grid;
   }
 }
 
-/* For medium devices */
+
 @media screen and (min-width: 576px) {
   .projects__content {
     grid-template-columns: 332px;
@@ -503,7 +491,7 @@ display: grid;
   }
 }
 
-/* For large devices */
+
 @media screen and (min-width: 992px) {
   .container {
     margin-left: auto;

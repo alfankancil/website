@@ -1,26 +1,30 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const downloadButton = document.getElementById('download-cv-button');
-  
+document.addEventListener("DOMContentLoaded", function() {
+  const downloadButton = document.getElementById('download-cv');
+
   downloadButton.addEventListener('click', function(event) {
-    // Mencegah default action dari link, yaitu membuka URL
-    event.preventDefault();
-    
-    // Mendapatkan URL file yang akan diunduh
-    const fileUrl = this.getAttribute('href');
-    
-    // Membuat elemen <a> baru untuk memicu unduhan
-    const downloadLink = document.createElement('a');
-    downloadLink.href = fileUrl;
-    downloadLink.download = ''; // Nama file diatur otomatis dari URL
-    downloadLink.style.display = 'none'; // Menyembunyikan elemen <a> dari tampilan
-    
-    // Menambahkan elemen <a> ke dalam dokumen
-    document.body.appendChild(downloadLink);
-    
-    // Memicu proses unduhan
-    downloadLink.click();
-    
-    // Menghapus elemen <a> setelah unduhan selesai
-    document.body.removeChild(downloadLink);
+      event.preventDefault(); // Prevent the default link behavior
+
+      // Check if the CV file is available
+      fetch(downloadButton.href)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('File not available');
+              }
+              return response.blob();
+          })
+          .then(blob => {
+              const url = window.URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.style.display = 'none';
+              a.href = url;
+              a.download = 'ALVAN-Cv.pdf';
+              document.body.appendChild(a);
+              a.click();
+              window.URL.revokeObjectURL(url);
+              alert('Your CV is being downloaded...');
+          })
+          .catch(error => {
+              alert('Maaf, CV belum tersedia untuk di download.');
+          });
   });
 });
